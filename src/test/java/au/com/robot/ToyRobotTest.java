@@ -1,6 +1,5 @@
-package au.com.toy;
+package au.com.robot;
 
-import au.com.robot.ToyRobot;
 import au.com.robot.model.Position;
 import org.junit.Test;
 
