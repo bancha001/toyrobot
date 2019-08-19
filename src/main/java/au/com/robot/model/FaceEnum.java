@@ -13,8 +13,4 @@ public enum FaceEnum {
 		this.face = face;
 	}
 
-	public String getFace() {
-		return face;
-	}
-
 }

@@ -11,8 +11,4 @@ public enum CommandEnum {
 	CommandEnum(String command) {
 		this.command = command;
 	}
-
-	String getCommand() {
-		return command;
-	}
 }

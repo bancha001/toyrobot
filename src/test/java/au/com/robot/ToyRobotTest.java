@@ -3,6 +3,10 @@ package au.com.robot;
 import au.com.robot.model.Position;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -167,4 +171,86 @@ public class ToyRobotTest {
 		assertNull(position);
 	}
 
+	@Test
+	public void doNothingWhenMoveOutsideNorthBorder(){
+		String commands = "PLACE 4,4,NORTH\n"+
+				"MOVE\n"+
+				"REPORT\n";
+
+		Position position = operate(commands);
+		assertEquals(4,position.getX());
+		assertEquals(4,position.getY());
+		assertEquals("NORTH",position.getFace().toString());
+	}
+	@Test
+	public void doNothingWhenMoveOutsideSouthBorder(){
+		String commands = "PLACE 0,0,SOUTH\n"+
+				"MOVE\n"+
+				"REPORT\n";
+
+		Position position = operate(commands);
+		assertEquals(0,position.getX());
+		assertEquals(0,position.getY());
+		assertEquals("SOUTH",position.getFace().toString());
+	}
+	@Test
+	public void doNothingWhenMoveOutsideWestBorder(){
+		String commands = "PLACE 0,0,WEST\n"+
+				"MOVE\n"+
+				"REPORT\n";
+
+		Position position = operate(commands);
+		assertEquals(0,position.getX());
+		assertEquals(0,position.getY());
+		assertEquals("WEST",position.getFace().toString());
+	}
+	@Test
+	public void returnCurrentPositionWhenMoveSouth(){
+		String commands = "PLACE 1,1,SOUTH\n"+
+				"MOVE\n"+
+				"REPORT\n";
+
+		Position position = operate(commands);
+		assertEquals(1,position.getX());
+		assertEquals(0,position.getY());
+		assertEquals("SOUTH",position.getFace().toString());
+	}
+	@Test
+	public void returnCurrentPositionWhenMoveWest(){
+		String commands = "PLACE 1,1,WEST\n"+
+				"MOVE\n"+
+				"REPORT\n";
+
+		Position position = operate(commands);
+		assertEquals(0,position.getX());
+		assertEquals(1,position.getY());
+		assertEquals("WEST",position.getFace().toString());
+	}
+
+	@Test
+	public void doNothingWhenTurnRightInInvalidPlace(){
+		String commands = "PLACE 5,5,WEST\n"+
+				"RIGHT\n"+
+				"REPORT\n";
+
+		Position position = operate(commands);
+		assertNull(position);
+	}
+	@Test
+	public void returnNoExceptionWhenRunMainMethod(){
+		String data = "PLACE 1,1,WEST\n"+
+				"MOVE\n"+
+				"REPORT\n"+
+				"QUIT\n";
+		boolean result = false;
+		InputStream stdin = System.in;
+		try {
+			System.setIn(new ByteArrayInputStream(data.getBytes()));
+			ToyRobot.main(null);
+			result = true;
+		} finally {
+			System.setIn(stdin);
+		}
+		assertTrue(result);
+	}
 }
