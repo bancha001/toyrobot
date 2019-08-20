@@ -1,5 +1,7 @@
 package au.com.robot.model;
-
+/*
+	CommandEnum provides valid commands to control robot
+ */
 public enum CommandEnum {
 	PLACE("PLACE"),
 	MOVE("MOVE"),

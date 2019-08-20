@@ -4,7 +4,9 @@ import au.com.robot.model.FaceEnum;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+	MoveFactory returns a move instance according to current face
+ */
 public class MoveFactory {
 	static Map<FaceEnum,MoveToDirection> map = new HashMap<FaceEnum, MoveToDirection>();
 	static {

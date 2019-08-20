@@ -1,5 +1,7 @@
 package au.com.robot.model;
-
+/*
+	FaceEnum provides robot valid face
+ */
 public enum FaceEnum {
 	NORTH("NORTH"),
 	SOUTH("SOUTH"),

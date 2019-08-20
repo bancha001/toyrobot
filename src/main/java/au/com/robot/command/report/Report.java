@@ -2,7 +2,9 @@ package au.com.robot.command.report;
 
 import au.com.robot.command.Command;
 import au.com.robot.model.Position;
-
+/*
+	Report current robot position
+ */
 public class Report implements Command {
 	public Position execute(Position position) {
 		if(position != null) {

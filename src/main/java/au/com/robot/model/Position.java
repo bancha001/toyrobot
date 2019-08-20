@@ -1,5 +1,7 @@
 package au.com.robot.model;
-
+/*
+	Store robot position
+ */
 public class Position {
 	int x;
 	int y;

@@ -9,7 +9,9 @@ import au.com.robot.model.CommandEnum;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+	CommandFactory returns a command instance according to command input string
+ */
 public class CommandFactory {
 	static Map<String, Command> map = new HashMap<String, Command>();
 

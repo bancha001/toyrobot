@@ -4,6 +4,9 @@ import au.com.robot.model.FaceEnum;
 
 import java.util.HashMap;
 import java.util.Map;
+/*
+	TurnLeftFactory returns a TurnLeftFromFace instance according to current face
+ */
 
 public class TurnLeftFactory {
 	static Map<FaceEnum,TurnLeftFromFace> map = new HashMap<FaceEnum, TurnLeftFromFace>();

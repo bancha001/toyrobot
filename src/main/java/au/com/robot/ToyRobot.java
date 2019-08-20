@@ -7,11 +7,15 @@ import au.com.robot.model.FaceEnum;
 import au.com.robot.model.Position;
 
 import java.util.Scanner;
-
+/*
+	ToyRobot is the main class for ToyRobot application
+ */
 public class ToyRobot {
 
 	private Position position;
-
+	/*
+		Get Standard Input and execute the command
+	 */
 	public static void main(String[] args) {
 		String command = "";
 		Scanner scanner = new Scanner(System.in);
@@ -22,6 +26,9 @@ public class ToyRobot {
 		} while (!command.equalsIgnoreCase("QUIT"));
 
 	}
+	/*
+		Execute a command and set current position
+	 */
 	public void execute(String commandString) {
 		Command command = CommandFactory.getCommand(commandString);
 		if (command instanceof Place) {
@@ -31,7 +38,9 @@ public class ToyRobot {
 			setPosition(command.execute(getPosition()));
 		}
 	}
-
+	/*
+		Parse position from command line
+	 */
 	private Position parsePosition(String commandString) {
 		Position result = null;
 		String[] subCommands = commandString.split(" ");
