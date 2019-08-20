@@ -1,4 +1,4 @@
-#Toy Robot
+# Toy Robot
 ## Overview
 Toy Robot application is a simple Java application with command line interface.
 It has 4 components:
